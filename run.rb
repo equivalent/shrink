@@ -11,26 +11,29 @@ require 'piet'
 def source_folder
   @source_folder ||= begin
     if ENV['DEFAULTS'] || Inputs.yn('use the default "/tmp/shrink" folder ?')
-      FileUtils.mkdir('/tmp/shrink')
+      FileUtils.mkdir('/tmp/shrink') unless Dir.exist?('/tmp/shrink')
       s = '/tmp/shrink'
     else
       s = Inputs.name "Specify source folder"
     end
     raise "source folder don't exist" unless Dir.exist?(s)
+    puts "Using folder #{s} as a source folder (make sure images for convert are there)".red
     s
  end
 end
 
 def destination_folder
   @destination_folder ||= begin
-    if ENV['DEFAULTS'] || Inputs.yn 'use the default destination "/tmp/shrink_processed" folder ?'
-      d = '/tmp/shrink_processed'.tap { |dest| FileUtils.mkdir(dest) }
+    if ENV['DEFAULTS'] || Inputs.yn('use the default destination "/tmp/shrink_processed" folder ?')
+      d = '/tmp/shrink_processed'.tap { |dest| FileUtils.mkdir(dest) unless Dir.exist?(dest) }
     else
       d = Inputs.name "destination folder"
       raise "destination folder don't exist" unless Dir.exist?(d)
       raise "cannot be the same" if source_folder == d
       d
     end
+    puts "Using folder #{d} as a destination folder".red
+    d
   end
 end
 

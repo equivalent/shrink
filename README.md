@@ -11,7 +11,7 @@ For example:
 
 ### Docker:
 
-Simplest usage is just clone the repo and run `docker-compose up`
+Simplest usage is just clone the repo and run `docker-compose run shrink`
 
 https://cloud.docker.com/repository/registry-1.docker.io/equivalent/shrink
 
