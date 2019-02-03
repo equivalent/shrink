@@ -2,10 +2,10 @@
 version: '2'
 services:
   shrink:
+    image: equivalent/shrink:latest
     build:
       context: .
       dockerfile: Dockerfile
-      image: equivalent/shrink:latest
     environment:
       - "DEFAULTS=true"
     volumes:
