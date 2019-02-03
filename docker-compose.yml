@@ -1,0 +1,13 @@
+---
+version: '2'
+services:
+  shrink:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      image: equivalent/shrink:latest
+    environment:
+      - "DEFAULTS=true"
+    volumes:
+      - /tmp/shrink:/tmp/shrink
+      - /tmp/shrink_processed:/tmp/shrink_processed

@@ -1,0 +1,22 @@
+GEM
+  remote: https://rubygems.org/
+  specs:
+    colorize (0.8.1)
+    inputs (0.2.0)
+      colorize (~> 0.7)
+    mini_magick (4.8.0)
+    piet (0.2.6)
+      png_quantizator
+    png_quantizator (0.2.1)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  colorize
+  inputs
+  mini_magick
+  piet
+
+BUNDLED WITH
+   1.16.1
