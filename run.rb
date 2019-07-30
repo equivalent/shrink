@@ -54,12 +54,12 @@ def resize_image(file)
   puts(path)
 
   if should_use_rand_name
-    destination_path_image = "#{destination_folder}/#{SecureRandom.hex(5)}#{path.extname.downcase}"
+    destination_path_image = "#{destination_folder}/#{SecureRandom.hex(5)}#{path.extname.to_s.downcase}"
   else
-    destination_path_image = "#{destination_folder}/#{path.basename.downcase}"
+    destination_path_image = "#{destination_folder}/#{path.basename.to_s.downcase}"
   end
 
-  case path.extname.downcase
+  case path.extname.to_s.downcase
   when '.jpg', '.jpeg', '.png'
     image = MiniMagick::Image.open(path.to_s)
     image.resize  size
@@ -76,7 +76,8 @@ def resize_image(file)
 end
 
 def should_use_rand_name
-  @should_use_rand_name ||= Inputs.yn('Do you want to rename files randomly?')
+  return @should_use_rand_name unless @should_use_rand_name.nil?
+  @should_use_rand_name = Inputs.yn('Do you want to rename files randomly?')
 end
 
 def web_optimize(file)
