@@ -15,6 +15,8 @@ Simplest usage is just clone the repo and run `docker-compose run shrink`
 
 https://hub.docker.com/r/equivalent/shrink
 
+It expects you will add your images to `/tmp/shrink` and they will get procesesed to `/tmp/shrink_processed`.
+If you want channge dir you need to run it as Ruby script.
 
 ### Ruby script:
 
