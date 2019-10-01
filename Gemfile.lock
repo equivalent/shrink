@@ -4,7 +4,7 @@ GEM
     colorize (0.8.1)
     inputs (0.2.0)
       colorize (~> 0.7)
-    mini_magick (4.8.0)
+    mini_magick (4.9.4)
     piet (0.2.6)
       png_quantizator
     png_quantizator (0.2.1)
